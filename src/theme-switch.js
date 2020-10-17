@@ -33,9 +33,20 @@ function onSwitchThemeHandler(evt) {
   if (bodyStyle.contains(LIGHT) || bodyStyle.contains(DARK)) {
     bodyStyle.toggle(DARK);
     bodyStyle.toggle(LIGHT);
+    onCheckboxControler();
 
     bodyStyle.contains(LIGHT)
       ? localStorage.setItem('theme', LIGHT)
       : localStorage.setItem('theme', DARK);
   }
 }
+
+function onCheckboxControler() {
+  if (bodyStyle.contains(DARK)) {
+    themeSwitchBtn.setAttribute('checked', true);
+  }
+  if (bodyStyle.contains(LIGHT)) {
+    themeSwitchBtn.setAttribute('checked', false);
+  }
+}
+onCheckboxControler();
